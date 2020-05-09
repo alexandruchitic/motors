@@ -22,7 +22,7 @@ def moveOnePeriod(direction,ms):
     for j in range(0,4,1):      # cycle for power supply order
         for i in range(0,4,1):  # assign to each pin
 
-            print("i este", i) #which is i
+           # print("i este", i) #which is i
 
             if (direction == 1):# power supply order clockwise
                 GPIO.output(motorPins[i],((CCWStep[j] == 1<<i) and GPIO.HIGH or GPIO.LOW))
@@ -48,15 +48,15 @@ def destroy():
 def loop():
     i = 1
     while i<2:
-        moveSteps(1,3,256)  # rotating 360 deg clockwise, a total of 2048 steps in a circle, 512 cycles
+        moveSteps(1,3,256)  # rotating 180 deg clockwise, a total of 2048 steps in a circle, 512 cycles
         time.sleep(0.5)
-        moveSteps(0,3,256)  # rotating 360 deg anticlockwise
+        moveSteps(0,3,256)  # rotating 180 deg anticlockwise
         time.sleep(0.5)
         i = i+1
     motorStop()
 
 def motor():
-    print ('Program is starting...')
+    print ('Pornim motorul')
     setup()
     try:
         loop()

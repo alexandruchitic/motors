@@ -9,7 +9,7 @@ import RPi.GPIO as GPIO
 import time
 #import file from another folder
 import sys
-sys.path.insert(1, '/share/smotor')
+sys.path.insert(1, '/share/motors/smotor')
 import motor2
 
 trigPin = 18
@@ -51,7 +51,7 @@ def loop():
         print ("The distance is : %.2f cm"%(distance))
         time.sleep(1)
         if (distance <= 40):
-            print ('dist less than 40') 
+            print ('dist less than 40 - motor will not start') 
         else:
             motor2.motor()
 
